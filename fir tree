@@ -1,0 +1,43 @@
+using System;
+
+class FirTree
+{
+    static void Main()
+    { 
+        int number;
+        int asterisk = 1;
+        Console.Write("Enter number: ");
+        number = int.Parse(Console.ReadLine());//9
+        int maxLength = ((number - 1) * 2) - 1;//15
+        int points = number - 2;//7
+        int numberOfPoints = points;//7
+        for (int i = 1; i <= maxLength + 1; i++)
+        {
+            if (i == maxLength + 1)//because 'i' begining from '1'
+            {
+                Console.WriteLine();
+                asterisk++;
+                numberOfPoints--;
+                i = 1;
+                number--;
+            }
+            if (number == 1)//For stem
+            {
+                numberOfPoints = points;
+                asterisk = 1;
+            }
+            if (number < 1)
+            {
+                break;
+            }
+            if ((i > numberOfPoints) && (i <= points + asterisk))
+            {
+                Console.Write(" * ");
+            }
+            else
+            {
+                Console.Write(" . ");
+            }
+        }
+    }
+}
